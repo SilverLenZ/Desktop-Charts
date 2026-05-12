@@ -23,10 +23,25 @@
         .chart-panel {
             flex: 1;
             position: relative;
+            overflow: hidden;
         }
-        iframe {
-            width: 100%;
-            height: 100%;
+        .chart-panel:not(:last-child) {
+            border-right: 4px solid #1a1a1a;
+        }
+        
+        /* Adjust this single value to control text size */
+        :root {
+            --chart-scale: 1.30;   /* Increase to 1.35–1.45 for even larger text; decrease if needed */
+        }
+        
+        .chart-panel iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: calc(100% / var(--chart-scale));
+            height: calc(100% / var(--chart-scale));
+            transform: scale(var(--chart-scale));
+            transform-origin: top left;
             border: none;
         }
     </style>
