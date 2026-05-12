@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Desktop Charts - Full TradingView UI</title>
+    <title>Desktop Charts</title>
     <style>
         * {
             margin: 0;
@@ -23,104 +23,31 @@
         .chart-panel {
             flex: 1;
             position: relative;
-            overflow: visible;
         }
-        /* Extra padding protects the right price scale (left chart) and left side toolbar (right chart) */
-        .chart-panel.left {
-            padding-right: 92px;
-        }
-        .chart-panel.right {
-            padding-left: 88px;
-        }
-        .chart-panel:not(:last-child) {
-            border-right: 4px solid #1a1a1a;
-        }
-        
-        /* Conservative scaling for full native UI visibility */
-        :root {
-            --chart-scale: 1.10;   /* Increase to 1.13–1.15 for larger text if everything fits cleanly */
-        }
-        
-        .tradingview-widget-container {
-            position: absolute;
-            top: -8%;
-            left: -8%;
-            width: calc(116% / var(--chart-scale));
-            height: calc(116% / var(--chart-scale));
-            transform: scale(var(--chart-scale));
-            transform-origin: top left;
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        
-        <!-- Bitcoin Chart (left) – Full native TradingView UI -->
-        <div class="chart-panel left">
-            <div class="tradingview-widget-container" style="height:100%;width:100%">
-                <div class="tradingview-widget-container__widget" style="height:100%;width:100%"></div>
-                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
-                {
-                  "allow_symbol_change": true,
-                  "calendar": false,
-                  "details": false,
-                  "hide_side_toolbar": false,
-                  "hide_top_toolbar": false,
-                  "hide_legend": true,
-                  "hide_volume": true,
-                  "interval": "240",
-                  "locale": "en",
-                  "save_image": false,
-                  "style": "1",
-                  "symbol": "KRAKEN:BTCUSD",
-                  "theme": "dark",
-                  "timezone": "America/Phoenix",
-                  "backgroundColor": "#0F0F0F",
-                  "gridColor": "rgba(242, 242, 242, 0.06)",
-                  "withdateranges": false,
-                  "studies": [
-                    "STD;Bollinger_Bands",
-                    "STD;Stochastic_RSI"
-                  ],
-                  "autosize": true
-                }
-                </script>
-            </div>
+        <!-- Bitcoin Chart (left) -->
+        <div class="chart-panel">
+            <iframe 
+                src="https://s.tradingview.com/embed-widget/advanced-chart/?locale=en&symbol=KRAKEN%3ABTCUSD&interval=240&theme=dark&style=1&timezone=America%2FPhoenix&backgroundColor=%230F0F0F&gridColor=rgba(242%2C%20242%2C%20242%2C%200.06)&hide_side_toolbar=true&hide_top_toolbar=false&hide_legend=true&hide_volume=true&withdateranges=false&autosize=true&allow_symbol_change=true&details=false&calendar=false" 
+                allowfullscreen="true">
+            </iframe>
         </div>
         
-        <!-- S&P 500 Chart (right) – Full native TradingView UI -->
-        <div class="chart-panel right">
-            <div class="tradingview-widget-container" style="height:100%;width:100%">
-                <div class="tradingview-widget-container__widget" style="height:100%;width:100%"></div>
-                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
-                {
-                  "allow_symbol_change": true,
-                  "calendar": false,
-                  "details": false,
-                  "hide_side_toolbar": false,
-                  "hide_top_toolbar": false,
-                  "hide_legend": true,
-                  "hide_volume": true,
-                  "interval": "240",
-                  "locale": "en",
-                  "save_image": false,
-                  "style": "1",
-                  "symbol": "FOREXCOM:SPXUSD",
-                  "theme": "dark",
-                  "timezone": "America/Phoenix",
-                  "backgroundColor": "#0F0F0F",
-                  "gridColor": "rgba(242, 242, 242, 0.06)",
-                  "withdateranges": false,
-                  "studies": [
-                    "STD;Bollinger_Bands",
-                    "STD;Stochastic_RSI"
-                  ],
-                  "autosize": true
-                }
-                </script>
-            </div>
+        <!-- S&P 500 Chart (right) -->
+        <div class="chart-panel">
+            <iframe 
+                src="https://s.tradingview.com/embed-widget/advanced-chart/?locale=en&symbol=FOREXCOM%3ASPXUSD&interval=240&theme=dark&style=1&timezone=America%2FPhoenix&backgroundColor=%230F0F0F&gridColor=rgba(242%2C%20242%2C%20242%2C%200.06)&hide_side_toolbar=true&hide_top_toolbar=false&hide_legend=true&hide_volume=true&withdateranges=false&autosize=true&allow_symbol_change=true&details=false&calendar=false" 
+                allowfullscreen="true">
+            </iframe>
         </div>
-        
     </div>
 </body>
 </html>
