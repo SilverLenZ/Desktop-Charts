@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Desktop Charts</title>
+    <title>Desktop Charts - Full UI</title>
     <style>
         * {
             margin: 0;
@@ -25,25 +25,29 @@
             position: relative;
             overflow: visible;
         }
-        /* Extra right padding on LEFT chart only – protects the price scale from the divider */
+        /* Extra padding on left chart to protect its right price scale from the divider */
         .chart-panel.left {
-            padding-right: 58px;
+            padding-right: 72px;
+        }
+        /* Extra padding on right chart to protect its left side toolbar */
+        .chart-panel.right {
+            padding-left: 62px;
         }
         .chart-panel:not(:last-child) {
             border-right: 4px solid #1a1a1a;
         }
         
-        /* Controls text size while keeping the main chart area large and clean */
+        /* Conservative scale so all UI elements remain fully visible */
         :root {
-            --chart-scale: 1.18;   /* ← Increase to 1.22 for slightly larger text or decrease to 1.14 if anything clips */
+            --chart-scale: 1.14;   /* ← Increase to 1.18–1.20 for larger text or decrease to 1.10 if any clipping occurs */
         }
         
         .tradingview-widget-container {
             position: absolute;
-            top: -4%;
-            left: -4%;
-            width: calc(108% / var(--chart-scale));
-            height: calc(108% / var(--chart-scale));
+            top: -7%;
+            left: -7%;
+            width: calc(114% / var(--chart-scale));
+            height: calc(114% / var(--chart-scale));
             transform: scale(var(--chart-scale));
             transform-origin: top left;
         }
@@ -52,7 +56,7 @@
 <body>
     <div class="container">
         
-        <!-- Bitcoin Chart (left) -->
+        <!-- Bitcoin Chart (left) – FULL normal TradingView UI -->
         <div class="chart-panel left">
             <div class="tradingview-widget-container" style="height:100%;width:100%">
                 <div class="tradingview-widget-container__widget" style="height:100%;width:100%"></div>
@@ -61,7 +65,7 @@
                   "allow_symbol_change": true,
                   "calendar": false,
                   "details": false,
-                  "hide_side_toolbar": true,
+                  "hide_side_toolbar": false,
                   "hide_top_toolbar": false,
                   "hide_legend": true,
                   "hide_volume": true,
@@ -85,8 +89,8 @@
             </div>
         </div>
         
-        <!-- S&P 500 Chart (right) -->
-        <div class="chart-panel">
+        <!-- S&P 500 Chart (right) – FULL normal TradingView UI -->
+        <div class="chart-panel right">
             <div class="tradingview-widget-container" style="height:100%;width:100%">
                 <div class="tradingview-widget-container__widget" style="height:100%;width:100%"></div>
                 <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
@@ -94,7 +98,7 @@
                   "allow_symbol_change": true,
                   "calendar": false,
                   "details": false,
-                  "hide_side_toolbar": true,
+                  "hide_side_toolbar": false,
                   "hide_top_toolbar": false,
                   "hide_legend": true,
                   "hide_volume": true,
