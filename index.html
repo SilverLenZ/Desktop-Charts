@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Desktop Charts - Full UI</title>
+    <title>Desktop Charts - Full TradingView UI</title>
     <style>
         * {
             margin: 0;
@@ -25,29 +25,28 @@
             position: relative;
             overflow: visible;
         }
-        /* Extra padding on left chart to protect its right price scale from the divider */
+        /* Extra padding protects the right price scale (left chart) and left side toolbar (right chart) */
         .chart-panel.left {
-            padding-right: 72px;
+            padding-right: 92px;
         }
-        /* Extra padding on right chart to protect its left side toolbar */
         .chart-panel.right {
-            padding-left: 62px;
+            padding-left: 88px;
         }
         .chart-panel:not(:last-child) {
             border-right: 4px solid #1a1a1a;
         }
         
-        /* Conservative scale so all UI elements remain fully visible */
+        /* Conservative scaling for full native UI visibility */
         :root {
-            --chart-scale: 1.14;   /* ← Increase to 1.18–1.20 for larger text or decrease to 1.10 if any clipping occurs */
+            --chart-scale: 1.10;   /* Increase to 1.13–1.15 for larger text if everything fits cleanly */
         }
         
         .tradingview-widget-container {
             position: absolute;
-            top: -7%;
-            left: -7%;
-            width: calc(114% / var(--chart-scale));
-            height: calc(114% / var(--chart-scale));
+            top: -8%;
+            left: -8%;
+            width: calc(116% / var(--chart-scale));
+            height: calc(116% / var(--chart-scale));
             transform: scale(var(--chart-scale));
             transform-origin: top left;
         }
@@ -56,7 +55,7 @@
 <body>
     <div class="container">
         
-        <!-- Bitcoin Chart (left) – FULL normal TradingView UI -->
+        <!-- Bitcoin Chart (left) – Full native TradingView UI -->
         <div class="chart-panel left">
             <div class="tradingview-widget-container" style="height:100%;width:100%">
                 <div class="tradingview-widget-container__widget" style="height:100%;width:100%"></div>
@@ -89,7 +88,7 @@
             </div>
         </div>
         
-        <!-- S&P 500 Chart (right) – FULL normal TradingView UI -->
+        <!-- S&P 500 Chart (right) – Full native TradingView UI -->
         <div class="chart-panel right">
             <div class="tradingview-widget-container" style="height:100%;width:100%">
                 <div class="tradingview-widget-container__widget" style="height:100%;width:100%"></div>
