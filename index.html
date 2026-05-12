@@ -25,25 +25,25 @@
             position: relative;
             overflow: visible;
         }
-        /* Extra right padding on the left chart only – prevents the divider from cutting the price scale */
+        /* Extra right padding on LEFT chart only – protects the price scale from the divider */
         .chart-panel.left {
-            padding-right: 48px;
+            padding-right: 58px;
         }
         .chart-panel:not(:last-child) {
             border-right: 4px solid #1a1a1a;
         }
         
-        /* Controls overall text size while preserving scales and toolbars */
+        /* Controls text size while keeping the main chart area large and clean */
         :root {
-            --chart-scale: 1.22;   /* ← Increase to 1.28 for larger text or decrease to 1.18 if any clipping remains */
+            --chart-scale: 1.18;   /* ← Increase to 1.22 for slightly larger text or decrease to 1.14 if anything clips */
         }
         
         .tradingview-widget-container {
             position: absolute;
-            top: -5%;
-            left: -5%;
-            width: calc(110% / var(--chart-scale));
-            height: calc(110% / var(--chart-scale));
+            top: -4%;
+            left: -4%;
+            width: calc(108% / var(--chart-scale));
+            height: calc(108% / var(--chart-scale));
             transform: scale(var(--chart-scale));
             transform-origin: top left;
         }
@@ -61,7 +61,7 @@
                   "allow_symbol_change": true,
                   "calendar": false,
                   "details": false,
-                  "hide_side_toolbar": false,
+                  "hide_side_toolbar": true,
                   "hide_top_toolbar": false,
                   "hide_legend": true,
                   "hide_volume": true,
@@ -94,7 +94,7 @@
                   "allow_symbol_change": true,
                   "calendar": false,
                   "details": false,
-                  "hide_side_toolbar": false,
+                  "hide_side_toolbar": true,
                   "hide_top_toolbar": false,
                   "hide_legend": true,
                   "hide_volume": true,
