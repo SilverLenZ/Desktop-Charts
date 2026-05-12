@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Desktop Charts - Larger Text + Indicators</title>
+    <title>Desktop Charts</title>
     <style>
         * {
             margin: 0;
@@ -23,23 +23,23 @@
         .chart-panel {
             flex: 1;
             position: relative;
-            overflow: hidden;
+            overflow: visible;           /* Restores clipped scales & toolbars */
         }
         .chart-panel:not(:last-child) {
             border-right: 4px solid #1a1a1a;
         }
         
-        /* Adjust this single value to control text size */
+        /* Controls overall text size (price labels, axes, toolbar) */
         :root {
-            --chart-scale: 1.45;   /* ← Change here (e.g. 1.50–1.60 for even larger text) */
+            --chart-scale: 1.25;   /* ← Start here. Increase to 1.30 max if needed */
         }
         
-        .chart-panel .tradingview-widget-container {
+        .tradingview-widget-container {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: calc(100% / var(--chart-scale));
-            height: calc(100% / var(--chart-scale));
+            top: -3%;
+            left: -3%;
+            width: calc(106% / var(--chart-scale));
+            height: calc(106% / var(--chart-scale));
             transform: scale(var(--chart-scale));
             transform-origin: top left;
         }
@@ -48,7 +48,7 @@
 <body>
     <div class="container">
         
-        <!-- Bitcoin Chart (left) with Bollinger Bands + Stochastic RSI -->
+        <!-- Bitcoin Chart (left) -->
         <div class="chart-panel">
             <div class="tradingview-widget-container" style="height:100%;width:100%">
                 <div class="tradingview-widget-container__widget" style="height:100%;width:100%"></div>
@@ -57,11 +57,10 @@
                   "allow_symbol_change": true,
                   "calendar": false,
                   "details": false,
-                  "hide_side_toolbar": true,
+                  "hide_side_toolbar": false,
                   "hide_top_toolbar": false,
                   "hide_legend": true,
                   "hide_volume": true,
-                  "hotlist": false,
                   "interval": "240",
                   "locale": "en",
                   "save_image": false,
@@ -71,9 +70,7 @@
                   "timezone": "America/Phoenix",
                   "backgroundColor": "#0F0F0F",
                   "gridColor": "rgba(242, 242, 242, 0.06)",
-                  "watchlist": [],
                   "withdateranges": false,
-                  "compareSymbols": [],
                   "studies": [
                     "STD;Bollinger_Bands",
                     "STD;Stochastic_RSI"
@@ -84,7 +81,7 @@
             </div>
         </div>
         
-        <!-- S&P 500 Chart (right) with Bollinger Bands + Stochastic RSI -->
+        <!-- S&P 500 Chart (right) -->
         <div class="chart-panel">
             <div class="tradingview-widget-container" style="height:100%;width:100%">
                 <div class="tradingview-widget-container__widget" style="height:100%;width:100%"></div>
@@ -93,11 +90,10 @@
                   "allow_symbol_change": true,
                   "calendar": false,
                   "details": false,
-                  "hide_side_toolbar": true,
+                  "hide_side_toolbar": false,
                   "hide_top_toolbar": false,
                   "hide_legend": true,
                   "hide_volume": true,
-                  "hotlist": false,
                   "interval": "240",
                   "locale": "en",
                   "save_image": false,
@@ -107,9 +103,7 @@
                   "timezone": "America/Phoenix",
                   "backgroundColor": "#0F0F0F",
                   "gridColor": "rgba(242, 242, 242, 0.06)",
-                  "watchlist": [],
                   "withdateranges": false,
-                  "compareSymbols": [],
                   "studies": [
                     "STD;Bollinger_Bands",
                     "STD;Stochastic_RSI"
