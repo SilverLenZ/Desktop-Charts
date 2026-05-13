@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Desktop Charts - Full UI</title>
+<title>Desktop Charts - Main Mode</title>
 
 <link rel="icon" type="image/png" href="favicon.png">
 
@@ -58,11 +58,11 @@
         height: 100%;
     }
 
-    /* BOTTOM CHART (TALLER NOW) */
+    /* MAIN MODE BOTTOM CHART */
     .bottom-chart {
         width: 100%;
-        height: 95vh;   /* ↑ increased height */
-        min-height: 800px;
+        height: 95vh;
+        min-height: 850px;
         border-top: 4px solid #1A1A1A;
     }
 </style>
@@ -125,7 +125,7 @@
 
     </div>
 
-    <!-- BOTTOM FULL CHART -->
+    <!-- MAIN TRADING VIEW MODE CHART -->
     <div class="bottom-chart">
 
         <div class="tradingview-widget-container" style="height:100%;width:100%">
@@ -134,17 +134,30 @@
             <script src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
             {
               "autosize": true,
+
               "symbol": "KRAKEN:BTCUSD",
               "interval": "60",
+
               "theme": "dark",
               "style": "1",
               "locale": "en",
 
-              "hide_side_toolbar": false,
+              /* FULL EXECUTION-STYLE EXPERIENCE */
               "hide_top_toolbar": false,
+              "hide_side_toolbar": false,
               "hide_volume": false,
+
+              "hide_legend": true,
+              "hide_ideas": true,
+              "hide_symbol_logo": false,
+
+              "withdateranges": false,
+              "calendar": false,
+              "details": false,
+
               "allow_symbol_change": true,
 
+              /* CLEAN INDICATOR SET (ONLY STOCH RSI) */
               "studies": [
                 "STD;Stochastic_RSI"
               ]
