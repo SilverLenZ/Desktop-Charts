@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Desktop Charts - Main Mode</title>
+<title>Desktop Charts - Full UI</title>
 
 <link rel="icon" type="image/png" href="favicon.png">
 
@@ -58,11 +58,11 @@
         height: 100%;
     }
 
-    /* MAIN MODE BOTTOM CHART */
+    /* BOTTOM FULL CHART */
     .bottom-chart {
         width: 100%;
         height: 95vh;
-        min-height: 850px;
+        min-height: 800px;
         border-top: 4px solid #1A1A1A;
     }
 </style>
@@ -89,10 +89,17 @@
                       "theme": "dark",
                       "style": "1",
                       "locale": "en",
-                      "hide_side_toolbar": false,
+
                       "hide_top_toolbar": false,
+                      "hide_side_toolbar": false,
                       "hide_volume": false,
-                      "allow_symbol_change": true
+
+                      "allow_symbol_change": true,
+
+                      "studies": [
+                        "STD;Bollinger_Bands",
+                        "STD;Stochastic_RSI"
+                      ]
                     }
                     </script>
                 </div>
@@ -113,10 +120,17 @@
                       "theme": "dark",
                       "style": "1",
                       "locale": "en",
-                      "hide_side_toolbar": false,
+
                       "hide_top_toolbar": false,
+                      "hide_side_toolbar": false,
                       "hide_volume": false,
-                      "allow_symbol_change": true
+
+                      "allow_symbol_change": true,
+
+                      "studies": [
+                        "STD;Bollinger_Bands",
+                        "STD;Stochastic_RSI"
+                      ]
                     }
                     </script>
                 </div>
@@ -125,7 +139,7 @@
 
     </div>
 
-    <!-- MAIN TRADING VIEW MODE CHART -->
+    <!-- BOTTOM FULL CHART (ONLY STOCH RSI) -->
     <div class="bottom-chart">
 
         <div class="tradingview-widget-container" style="height:100%;width:100%">
@@ -137,27 +151,16 @@
 
               "symbol": "KRAKEN:BTCUSD",
               "interval": "60",
-
               "theme": "dark",
               "style": "1",
               "locale": "en",
 
-              /* FULL EXECUTION-STYLE EXPERIENCE */
               "hide_top_toolbar": false,
               "hide_side_toolbar": false,
               "hide_volume": false,
 
-              "hide_legend": true,
-              "hide_ideas": true,
-              "hide_symbol_logo": false,
-
-              "withdateranges": false,
-              "calendar": false,
-              "details": false,
-
               "allow_symbol_change": true,
 
-              /* CLEAN INDICATOR SET (ONLY STOCH RSI) */
               "studies": [
                 "STD;Stochastic_RSI"
               ]
