@@ -16,17 +16,25 @@
 
     html, body {
         width: 100%;
-        min-height: 100%;
+        height: 100%;
         background: #0F0F0F;
         font-family: Arial, sans-serif;
         overflow-x: hidden;
+        overflow-y: auto;
     }
 
-    /* TOP ROW */
+    .app {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    /* TOP TWO CHARTS */
     .top-row {
         display: flex;
         width: 100%;
         height: 60vh;
+        min-height: 500px;
     }
 
     .chart-panel {
@@ -44,133 +52,106 @@
         inset: 0;
     }
 
-    .tradingview-widget-container {
-        width: 100%;
-        height: 100%;
-    }
-
+    .tradingview-widget-container,
     .tradingview-widget-container__widget {
         width: 100%;
         height: 100%;
     }
 
-    /* BOTTOM FULL WIDTH CHART */
+    /* BOTTOM CHART (TALLER NOW) */
     .bottom-chart {
         width: 100%;
-        height: 70vh;
+        height: 95vh;   /* ↑ increased height */
+        min-height: 800px;
         border-top: 4px solid #1A1A1A;
-        position: relative;
     }
 </style>
 </head>
 
 <body>
 
-<!-- TOP TWO CHARTS -->
-<div class="top-row">
+<div class="app">
 
-    <!-- BTC -->
-    <div class="chart-panel left">
-        <div class="tv-wrap">
-            <div class="tradingview-widget-container">
-                <div class="tradingview-widget-container__widget"></div>
+    <!-- TOP ROW -->
+    <div class="top-row">
 
-                <script src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
-                {
-                  "autosize": true,
-                  "symbol": "KRAKEN:BTCUSD",
-                  "interval": "240",
-                  "timezone": "America/Phoenix",
-                  "theme": "dark",
-                  "style": "1",
-                  "locale": "en",
-                  "allow_symbol_change": true,
-                  "hide_top_toolbar": false,
-                  "hide_side_toolbar": false,
-                  "hide_legend": false,
-                  "hide_volume": false,
-                  "withdateranges": true,
-                  "details": true,
-                  "calendar": false,
-                  "studies": [
-                    "STD;Bollinger_Bands",
-                    "STD;Stochastic_RSI"
-                  ]
-                }
-                </script>
+        <!-- BTC -->
+        <div class="chart-panel left">
+            <div class="tv-wrap">
+                <div class="tradingview-widget-container">
+                    <div class="tradingview-widget-container__widget"></div>
+
+                    <script src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+                    {
+                      "autosize": true,
+                      "symbol": "KRAKEN:BTCUSD",
+                      "interval": "240",
+                      "theme": "dark",
+                      "style": "1",
+                      "locale": "en",
+                      "hide_side_toolbar": false,
+                      "hide_top_toolbar": false,
+                      "hide_volume": false,
+                      "allow_symbol_change": true
+                    }
+                    </script>
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- SPX -->
-    <div class="chart-panel">
-        <div class="tv-wrap">
-            <div class="tradingview-widget-container">
-                <div class="tradingview-widget-container__widget"></div>
+        <!-- SPX -->
+        <div class="chart-panel">
+            <div class="tv-wrap">
+                <div class="tradingview-widget-container">
+                    <div class="tradingview-widget-container__widget"></div>
 
-                <script src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
-                {
-                  "autosize": true,
-                  "symbol": "FOREXCOM:SPXUSD",
-                  "interval": "240",
-                  "timezone": "America/Phoenix",
-                  "theme": "dark",
-                  "style": "1",
-                  "locale": "en",
-                  "allow_symbol_change": true,
-                  "hide_top_toolbar": false,
-                  "hide_side_toolbar": false,
-                  "hide_legend": false,
-                  "hide_volume": false,
-                  "withdateranges": true,
-                  "details": true,
-                  "calendar": false,
-                  "studies": [
-                    "STD;Bollinger_Bands",
-                    "STD;Stochastic_RSI"
-                  ]
-                }
-                </script>
+                    <script src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+                    {
+                      "autosize": true,
+                      "symbol": "FOREXCOM:SPXUSD",
+                      "interval": "240",
+                      "theme": "dark",
+                      "style": "1",
+                      "locale": "en",
+                      "hide_side_toolbar": false,
+                      "hide_top_toolbar": false,
+                      "hide_volume": false,
+                      "allow_symbol_change": true
+                    }
+                    </script>
+                </div>
             </div>
         </div>
+
     </div>
 
-</div>
+    <!-- BOTTOM FULL CHART -->
+    <div class="bottom-chart">
 
-<!-- FULL WIDTH MAIN CHART -->
-<div class="bottom-chart">
+        <div class="tradingview-widget-container" style="height:100%;width:100%">
+            <div class="tradingview-widget-container__widget"></div>
 
-    <div class="tradingview-widget-container" style="height:100%;width:100%">
-        <div class="tradingview-widget-container__widget"></div>
+            <script src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+            {
+              "autosize": true,
+              "symbol": "KRAKEN:BTCUSD",
+              "interval": "60",
+              "theme": "dark",
+              "style": "1",
+              "locale": "en",
 
-        <script src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
-        {
-          "autosize": true,
-          "symbol": "KRAKEN:BTCUSD",
-          "interval": "60",
-          "timezone": "America/Phoenix",
-          "theme": "dark",
-          "style": "1",
-          "locale": "en",
+              "hide_side_toolbar": false,
+              "hide_top_toolbar": false,
+              "hide_volume": false,
+              "allow_symbol_change": true,
 
-          "allow_symbol_change": true,
+              "studies": [
+                "STD;Stochastic_RSI"
+              ]
+            }
+            </script>
 
-          "hide_top_toolbar": false,
-          "hide_side_toolbar": false,
-          "hide_legend": false,
-          "hide_volume": false,
-
-          "withdateranges": true,
-          "details": true,
-          "calendar": false,
-
-          "studies": [
-            "STD;Bollinger_Bands",
-            "STD;Stochastic_RSI",
-            "STD;Volume"
-          ]
-        }
-        </script>
+        </div>
 
     </div>
 
